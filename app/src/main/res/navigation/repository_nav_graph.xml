@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/repository_nav_graph"
+    app:startDestination="@id/publicRepositoryFragment">
+
+    <fragment
+        android:id="@+id/publicRepositoryFragment"
+        android:name="com.android.gitreposapp.ui.fragments.PublicRepositoryFragment"
+        android:label="PublicRepositoryFragment" >
+        <action
+            android:id="@+id/action_publicRepositoryFragment_to_detailRepositoryFragment"
+            app:destination="@id/detailRepositoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailRepositoryFragment"
+        android:name="com.android.gitreposapp.ui.fragments.DetailRepositoryFragment"
+        android:label="DetailRepositoryFragment" />
+    <fragment
+        android:id="@+id/savedRepositoryFragment"
+        android:name="com.android.gitreposapp.ui.fragments.SavedRepositoryFragment"
+        android:label="SavedRepositoryFragment" >
+        <action
+            android:id="@+id/action_savedRepositoryFragment_to_detailRepositoryFragment"
+            app:destination="@id/detailRepositoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+</navigation>
