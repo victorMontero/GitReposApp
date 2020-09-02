@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.gitreposapp.R
 import com.android.gitreposapp.adapters.RepositoryAdapter
@@ -25,6 +26,16 @@ class PublicRepositoryFragment : Fragment(R.layout.fragment_public_repository) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as RepositoryActivity).viewModel
         setUpRecyclerView()
+
+        repositoryAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("repositoryResponseItem", it)
+            }
+            findNavController().navigate(
+                R.id.action_publicRepositoryFragment_to_detailRepositoryFragment,
+                bundle
+            )
+        }
 
         viewModel.repository.observe(viewLifecycleOwner, Observer {response ->
             when(response){

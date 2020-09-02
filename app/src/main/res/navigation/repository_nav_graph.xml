@@ -18,7 +18,11 @@
     <fragment
         android:id="@+id/detailRepositoryFragment"
         android:name="com.android.gitreposapp.ui.fragments.DetailRepositoryFragment"
-        android:label="DetailRepositoryFragment" />
+        android:label="DetailRepositoryFragment" >
+        <argument
+            android:name="repositoryResponseItem"
+            app:argType="com.android.gitreposapp.models.RepositoryResponseItem" />
+    </fragment>
     <fragment
         android:id="@+id/savedRepositoryFragment"
         android:name="com.android.gitreposapp.ui.fragments.SavedRepositoryFragment"
