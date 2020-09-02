@@ -20,7 +20,7 @@ class RepositoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_repository)
 
         val repoRepository = RepoRepository(RepositoryDatabase(this))
-        val viewModelProviderFactory = RepositoryViewModelProviderFactory(repoRepository)
+        val viewModelProviderFactory = RepositoryViewModelProviderFactory(application, repoRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory).get(RepositoryViewModel::class.java)
 
         bottom_navigation_view.setupWithNavController(repositoryNavHostFragment.findNavController())

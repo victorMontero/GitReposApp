@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import com.android.gitreposapp.R
 import com.android.gitreposapp.ui.RepositoryActivity
 import com.android.gitreposapp.ui.RepositoryViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_detail_repository.*
 
 class DetailRepositoryFragment : Fragment(R.layout.fragment_detail_repository) {
@@ -23,6 +24,11 @@ class DetailRepositoryFragment : Fragment(R.layout.fragment_detail_repository) {
         webView.apply {
             webViewClient = WebViewClient()
             loadUrl(repository.htmlUrl)
+        }
+
+        fab_to_favorite_repository.setOnClickListener {
+            viewModel.saveRepository(repository)
+            Snackbar.make(view, "repository has been saved", Snackbar.LENGTH_SHORT).show()
         }
     }
 }
