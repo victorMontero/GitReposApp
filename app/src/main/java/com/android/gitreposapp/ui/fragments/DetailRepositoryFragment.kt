@@ -31,4 +31,12 @@ class DetailRepositoryFragment : Fragment(R.layout.fragment_detail_repository) {
             Snackbar.make(view, "repository has been saved", Snackbar.LENGTH_SHORT).show()
         }
     }
+
+    private fun hideProgressBar() {
+        progress_bar_detail_repository_fragment.visibility = View.INVISIBLE
+    }
+
+    private fun showProgressBar() {
+        progress_bar_detail_repository_fragment.visibility = View.VISIBLE
+    }
 }

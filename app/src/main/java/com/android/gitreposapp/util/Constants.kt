@@ -1,7 +1,7 @@
 package com.android.gitreposapp.util
 
 class Constants {
-    companion object{
+    companion object {
         const val BASE_URL = "https://api.github.com"
     }
 }

@@ -10,7 +10,7 @@ interface RepositoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(repository: RepositoryResponseItem): Long
 
-    @Query("SELECT * FROM repositories")
+    @Query("SELECT * FROM repositories LIMIT 100")
     fun getAllRepositories(): LiveData<List<RepositoryResponseItem>>
 
     @Delete

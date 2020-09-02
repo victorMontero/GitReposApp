@@ -8,14 +8,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.gitreposapp.R
 import com.android.gitreposapp.models.RepositoryResponseItem
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_repository_preview.view.*
 
 class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoryItemViewHolder>() {
 
-    inner class RepositoryItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+    inner class RepositoryItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    private val differCallback = object : DiffUtil.ItemCallback<RepositoryResponseItem>(){
+    private val differCallback = object : DiffUtil.ItemCallback<RepositoryResponseItem>() {
 
         override fun areItemsTheSame(
             oldItem: RepositoryResponseItem,
@@ -51,19 +50,19 @@ class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoryItemV
     override fun onBindViewHolder(holder: RepositoryItemViewHolder, position: Int) {
         val repository = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(repository.owner.avatarUrl).into(item_image_repository)
+            //Glide.with(this).load(repository.owner.avatarUrl).into(item_image_repository)
             item_repository_owner.text = repository.owner.login
             item_repository_name.text = repository.name
 
             setOnClickListener {
-                onItemClickListener?.let{it(repository)}
+                onItemClickListener?.let { it(repository) }
             }
         }
     }
 
     private var onItemClickListener: ((RepositoryResponseItem) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (RepositoryResponseItem) -> Unit){
+    fun setOnItemClickListener(listener: (RepositoryResponseItem) -> Unit) {
         onItemClickListener = listener
     }
 }

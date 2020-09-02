@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface RepositoryAPI {
 
     @GET("repositories")
-    suspend fun getRepositories() : Response<RepositoryResponse>
+    suspend fun getRepositories(): Response<RepositoryResponse>
 
 }

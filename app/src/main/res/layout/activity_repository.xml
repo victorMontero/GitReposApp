@@ -10,7 +10,7 @@
         android:id="@+id/frame_layout_activity_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#F0F8E2"
+        android:background="#D5D5D5"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -26,24 +26,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/item_image_repository"
-                    android:layout_width="0dp"
-                    android:layout_height="140dp"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="8dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/avatar_git"
+                    app:civ_border_color="@color/colorAccent"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/ic_launcher_background"
-                    tools:ignore="ContentDescription" />
-
-
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <View
                     android:id="@+id/item_view"
                     android:layout_width="0dp"
                     android:layout_height="3dp"
                     android:background="@android:color/black"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/item_image_repository" />
@@ -52,15 +53,28 @@
                     android:id="@+id/item_repository_owner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
                     android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/item_view"
+                    app:layout_constraintStart_toEndOf="@+id/item_text_owner"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:text="owner: " />
+
+                <TextView
+                    android:id="@+id/item_text_owner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/item_image_repository"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/text_owner" />
 
                 <TextView
                     android:id="@+id/item_repository_name"
@@ -69,12 +83,25 @@
                     android:layout_marginBottom="16dp"
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:paddingEnd="16dp"
+                    android:textStyle="normal"
+                    android:layout_marginStart="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/item_repository_owner"
+                    app:layout_constraintStart_toEndOf="@id/item_text_name"
                     app:layout_constraintTop_toBottomOf="@id/item_repository_owner"
-                    tools:text="airdate: " />
+                    tools:text="name " />
+
+                <TextView
+                    android:id="@+id/item_text_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/item_text_owner"
+                    app:layout_constraintTop_toBottomOf="@id/item_text_owner"
+                    android:text="@string/text_repository_name" />
 
 
 

@@ -1,7 +1,6 @@
 package com.android.gitreposapp.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -20,8 +19,6 @@ class PublicRepositoryFragment : Fragment(R.layout.fragment_public_repository) {
     lateinit var viewModel: RepositoryViewModel
     lateinit var repositoryAdapter: RepositoryAdapter
 
-    val TAG = "PublicRepositoryFrag"
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as RepositoryActivity).viewModel
@@ -37,11 +34,11 @@ class PublicRepositoryFragment : Fragment(R.layout.fragment_public_repository) {
             )
         }
 
-        viewModel.repository.observe(viewLifecycleOwner, Observer {response ->
-            when(response){
+        viewModel.repository.observe(viewLifecycleOwner, Observer { response ->
+            when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
-                    response.data?.let{repositoryResponse ->
+                    response.data?.let { repositoryResponse ->
                         repositoryAdapter.differ.submitList(repositoryResponse)
 
                     }
@@ -49,7 +46,8 @@ class PublicRepositoryFragment : Fragment(R.layout.fragment_public_repository) {
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
 
@@ -68,7 +66,7 @@ class PublicRepositoryFragment : Fragment(R.layout.fragment_public_repository) {
         progress_bar_public_repository_fragment.visibility = View.VISIBLE
     }
 
-    private fun setUpRecyclerView(){
+    private fun setUpRecyclerView() {
         repositoryAdapter = RepositoryAdapter()
         recycler_view_public_repository_fragment.apply {
             adapter = repositoryAdapter

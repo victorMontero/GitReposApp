@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/publicRepositoryFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_repo_white"
         android:iconTint="@color/colorAccent"
-        android:title="public repositories"/>
+        android:title="@string/text_public_repositories"/>
 
 
     <item
         android:id="@+id/savedRepositoryFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_star_stroke_white"
         android:iconTint="@color/colorAccent"
-        android:title="saved repositories"/>
+        android:title="@string/text_saved_repositories"/>
 </menu>

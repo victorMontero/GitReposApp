@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">GitReposApp</string>
+    <string name="app_name">Repository App</string>
+    <string name="text_owner">owner:</string>
+    <string name="text_repository_name">repository name:</string>
+    <string name="text_public_repositories">public repositories</string>
+    <string name="text_saved_repositories">saved repositories</string>
 </resources>
